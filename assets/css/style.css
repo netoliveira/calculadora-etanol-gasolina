@@ -38,10 +38,10 @@ img {
 }
 
 #mainApp {
-  padding: 20px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
   width: 100%;
   max-width: 430px;
 }
@@ -65,12 +65,12 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 form div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 @media screen and (min-width: 701px) {
   form div {
