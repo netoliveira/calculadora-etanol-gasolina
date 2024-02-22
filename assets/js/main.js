@@ -1,3 +1,4 @@
+// [BEGIN] formataPreco
 function formataPreco(preco) {
 	// Remove caracteres não numéricos
 	let valor = preco.value.replace(/\D/g, '')
@@ -11,7 +12,9 @@ function formataPreco(preco) {
 	// Atualiza o valor no campo
 	preco.value = valor
 }
+// [END] formataPreco
 
+// [BEGIN] formatarNumero
 function formatarNumero(numero) {
 	// Converte o número para uma string e substitui ',' por '.'
 	let numeroFormatado = numero.match(/\d+/g).toString().replace(',', '.')
@@ -19,7 +22,9 @@ function formatarNumero(numero) {
 	// Retorna o número formatado
 	return numeroFormatado
 }
+// [END] formatarNumero
 
+// [BEGIN] formataConsumo
 function formataConsumo(consumo) {
 	// Remove caracteres não numéricos
 	let valor = consumo.value.replace(/[^0-9.]/g, '')
@@ -36,14 +41,18 @@ function formataConsumo(consumo) {
 	// Atualiza o valor no campo
 	consumo.value = valor
 }
+// [END] formataConsumo
 
+// [BEGIN] messageResult
 function messageResult(result) {
 	let messageResult = document.getElementById('messageResult')
 	let messageResultChild = document.querySelector('#messageResult p')
 	messageResult.removeChild(messageResultChild)
 	messageResult.innerHTML = `<p>Abasteça com ${result}</p>`
 }
+// [END] messageResult
 
+// [BEGIN] calculadoraEtanolGasolina
 function calculadoraEtanolGasolina() {
 	let calculadoraEtanolGasolina = document.getElementById(
 		'calculadoraEtanolGasolina'
@@ -60,21 +69,33 @@ function calculadoraEtanolGasolina() {
 		let etanolPreco = document.getElementById('etanolPreco').value
 		let newEtanolPreco = formatarNumero(etanolPreco)
 		let etanolConsumo = document.getElementById('etanolConsumo').value
-		let mediaEtanol = newEtanolPreco / etanolConsumo
+		// let mediaEtanol = newEtanolPreco / etanolConsumo
 
 		let gasolinaPreco = document.getElementById('gasolinaPreco').value
 		let newGasolinalPreco = formatarNumero(gasolinaPreco)
 		let gasolinaConsumo = document.getElementById('gasolinaConsumo').value
-		let mediaGasolina = newGasolinalPreco / gasolinaConsumo
+		// let mediaGasolina = newGasolinalPreco / gasolinaConsumo
 
-		if (mediaEtanol < mediaGasolina) {
+		let mediaConsumo = (etanolConsumo / gasolinaConsumo).toFixed(2)
+		let mediaBaseCalculo = (mediaConsumo - mediaConsumo / 100).toFixed(2)
+
+		let mediaValor = (newEtanolPreco / newGasolinalPreco).toFixed(2)
+
+		if (mediaValor < mediaBaseCalculo) {
 			messageResult('Etanol')
-		} else {
+		}
+		if (mediaValor == mediaBaseCalculo) {
+			messageResult('Etanol ou Gasolina')
+		}
+		if (mediaValor > mediaBaseCalculo) {
 			messageResult('Gasolina')
 		}
 	})
 }
+// [END] calculadoraEtanolGasolina
 
+// [BEGIN] refresh
 function refresh() {
 	location.reload()
 }
+// [END] refresh
