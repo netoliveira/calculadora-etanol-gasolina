@@ -74,7 +74,7 @@ form fieldset {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   border: 0;
   border-radius: var(--radius);
   background: linear-gradient(116.89deg, #171717 0%, rgba(23, 23, 23, 0) 100%);
