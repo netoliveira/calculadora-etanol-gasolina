@@ -54,16 +54,16 @@ function messageResult(result) {
 
 // [BEGIN] calculadoraEtanolGasolina
 function calculadoraEtanolGasolina() {
-	let calculadoraEtanolGasolina = document.getElementById(
+	const calculadoraEtanolGasolina = document.getElementById(
 		'calculadoraEtanolGasolina'
 	)
+	const btnSubmit = document.getElementById('btnSubmit')
+	const btnReset = document.getElementById('btnReset')
+
 	calculadoraEtanolGasolina.addEventListener('submit', (e) => {
 		e.preventDefault()
 
-		let btnSubmit = document.getElementById('btnSubmit')
 		btnSubmit.classList.toggle('closed')
-
-		let btnReset = document.getElementById('btnReset')
 		btnReset.classList.toggle('closed')
 
 		let etanolPreco = document.getElementById('etanolPreco').value

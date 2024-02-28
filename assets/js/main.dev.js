@@ -53,11 +53,11 @@ function messageResult(result) {
 
 function calculadoraEtanolGasolina() {
   var calculadoraEtanolGasolina = document.getElementById('calculadoraEtanolGasolina');
+  var btnSubmit = document.getElementById('btnSubmit');
+  var btnReset = document.getElementById('btnReset');
   calculadoraEtanolGasolina.addEventListener('submit', function (e) {
     e.preventDefault();
-    var btnSubmit = document.getElementById('btnSubmit');
     btnSubmit.classList.toggle('closed');
-    var btnReset = document.getElementById('btnReset');
     btnReset.classList.toggle('closed');
     var etanolPreco = document.getElementById('etanolPreco').value;
     var newEtanolPreco = formatarNumero(etanolPreco);
